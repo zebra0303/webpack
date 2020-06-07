@@ -1,29 +1,20 @@
-import printMe from "./print.js";
-
 console.log('main');
 
+async function getComponent() {
+  const { default: common } = await import(/* webpackChunkName: 'common' */ './common.js');
+  const { default : _ } = await import(/* webpackChunkName: 'lodash' */ 'lodash');
+  const { default: printMe } = await import(/* webpackChunkName: 'print' */ './print.js');
 
-import(/* webpackChunkName: 'common' */ './common.js')
-.then(({default: comm})=>comm());
+  common();
+  const elem = document.createElement('div');
+  const btn = document.createElement("button");
 
-function getComponent() {
-    return import(/* webpackChunkName: 'lodash' */ 'lodash')
-    .then(({default: _ }) => {
-      const elem = document.createElement('div');
-      const btn = document.createElement("button");
-
-      btn.innerHTML = "Click me and check the console!!";
-      btn.onclick = printMe;
-
-      elem.innerHTML = _.join(["Hello", "Main"], " ");
-      elem.appendChild(btn);
-
-      return elem;
-    })
-    .catch(err => 'An error occurred');
+  btn.innerHTML = "Click me and check the console!!";
+  btn.onclick = printMe;
+  elem.innerHTML = _.join(["Hello", "Main"], " ");
+  elem.appendChild(btn);
+  return elem;
 }
-
-//document.body.appendChild(component());
 
 getComponent().then(component => {
   document.body.appendChild(component);

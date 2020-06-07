@@ -1,5 +1,4 @@
 module.exports = {
-  common: ['./src/js/common.js'],
   main: {
     import: ['./src/js/main.js', './src/css/main.scss'], 
     filename: './js/[name].bundle.js'

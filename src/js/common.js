@@ -1,6 +1,4 @@
-
-const test = () => {
-  console.log('common.2..!');
+export default async function common () {
+  const { default : _ } = await import(/* webpackChunkName: 'lodash' */ 'lodash');
+  console.log(_.join(["Hello", "Common"], " "));
 };
-
-export default test;

@@ -1,6 +1,4 @@
 //import '../css/list/list.scss';
-import printMe from "../print.js";
-
 console.log('list')
 
 async function getComponent() {
@@ -12,6 +10,7 @@ async function getComponent() {
   element.innerHTML = _.join(["Hello", "List"], " ");
 
   btn.innerHTML = "Click me and check the console!!";
+  const { default : printMe } = await import(/* webpackChunkName: 'print' */ '../print.js');
   btn.onclick = printMe;
 
   element.appendChild(btn);
