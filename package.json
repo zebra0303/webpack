@@ -1,16 +1,14 @@
 {
   "name": "webpack-test",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.1",
   "scripts": {
     "dev": "webpack --watch --config webpack.dev.js",
     "prod": "webpack --watch --config webpack.prod.js",
     "build": "webpack --config webpack.prod.js"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Larry Kim",
   "license": "ISC",
-  "description": "",
+  "description": "webpack test package",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
@@ -29,6 +27,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "lodash": "^4.17.15"
   }
 }

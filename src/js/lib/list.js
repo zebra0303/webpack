@@ -1,8 +1,11 @@
 //import '../css/list/list.scss';
-import _ from "lodash";
 import printMe from "../print.js";
 
-function component() {
+console.log('list')
+
+async function getComponent() {
+  const { default : _ } = await import(/* webpackChunkName: 'lodash' */ 'lodash');
+
   const element = document.createElement("div");
   const btn = document.createElement("button");
 
@@ -16,4 +19,7 @@ function component() {
   return element;
 }
 
-document.body.appendChild(component());
+getComponent().then(comp=> {
+  document.body.appendChild(comp);
+});
+

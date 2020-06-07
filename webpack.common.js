@@ -1,15 +1,15 @@
 const path = require('path');
+const entry = require('./webpack.entry.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const entry = require('./webpack.entry.js');
 
-console.log(entry);
 module.exports = {
   entry,
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '/dist/',
-    filename: './js/[name].bundle.js'
+    filename: './js/[name].bundle.js',
+    chunkFilename: './js/[name].bundle.js'
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -36,11 +36,13 @@ module.exports = {
     ],
   },
   optimization: {
+    /*
     splitChunks: {
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name(module) {
+            console.debug(module.identifier().split('/'));
             const moduleName = module.identifier().split('/').reduceRight(item => item).replace(/\.js$/, '');
             return `./vendor/${moduleName}`;
           },
@@ -48,6 +50,7 @@ module.exports = {
         }
       }
     },
+    */
   },
   resolve: {
     extensions: ['.json', '.js', '.jsx'],

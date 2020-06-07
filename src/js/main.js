@@ -1,19 +1,30 @@
-//import '../css/main.scss';
-import _ from "lodash";
 import printMe from "./print.js";
 
-function component() {
-  const element = document.createElement("div");
-  const btn = document.createElement("button");
+console.log('main');
 
-  element.innerHTML = _.join(["Hello", "Main"], " ");
 
-  btn.innerHTML = "Click me and check the console!!";
-  btn.onclick = printMe;
+import(/* webpackChunkName: 'common' */ './common.js')
+.then(({default: comm})=>comm());
 
-  element.appendChild(btn);
+function getComponent() {
+    return import(/* webpackChunkName: 'lodash' */ 'lodash')
+    .then(({default: _ }) => {
+      const elem = document.createElement('div');
+      const btn = document.createElement("button");
 
-  return element;
+      btn.innerHTML = "Click me and check the console!!";
+      btn.onclick = printMe;
+
+      elem.innerHTML = _.join(["Hello", "Main"], " ");
+      elem.appendChild(btn);
+
+      return elem;
+    })
+    .catch(err => 'An error occurred');
 }
 
-document.body.appendChild(component());
+//document.body.appendChild(component());
+
+getComponent().then(component => {
+  document.body.appendChild(component);
+});

@@ -1,2 +1,6 @@
 
-console.log( 'common' );
+const test = () => {
+  console.log('common.2..!');
+};
+
+export default test;
