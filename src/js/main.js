@@ -1,4 +1,6 @@
-console.log('main');
+require("@babel/polyfill");
+
+console.log('main 2');
 
 async function getComponent() {
   const { default: common } = await import(/* webpackChunkName: 'common' */ './common.js');

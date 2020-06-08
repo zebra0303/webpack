@@ -23,6 +23,9 @@ module.exports = {
         test: /.jsx?$/,
         include: [path.resolve(__dirname, 'src/js')],
         loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env']
+        }
       },
       {
         test: /\.s[ac]ss$/i,
