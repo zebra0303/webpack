@@ -18,9 +18,9 @@ yarn build
 ## css나 js추가
 | 페이지 별로 webpack.entry.js에 추가
 ```
- // 메인페이지
- main: {
-    import: ['./src/js/main.js', './src/css/main.scss'], 
-    filename: './js/[name].bundle.js'
-  }
+  // 메인페이지
+  main: ['core-js/modules/es.array.iterator', './src/js/main.js', './src/css/main.scss'],
+  ie: ['whatwg-fetch', './src/js/ie.js', './src/css/ie.scss'],
+  // lib 폴더 속의 list 페이지
+  'lib/list': ['core-js/modules/es.array.iterator', './src/js/lib/list.js', './src/css/lib/list.scss']
 ```
