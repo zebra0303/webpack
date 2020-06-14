@@ -1,4 +1,4 @@
-require("@babel/polyfill");
+//import 'regenerator-runtime/runtime'
 
 console.log('main 2');
 

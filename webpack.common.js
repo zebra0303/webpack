@@ -20,16 +20,33 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.jsx?$/,
-        include: [path.resolve(__dirname, 'src/js')],
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env']
+        test: /\.m?js$/,
+        include: [path.resolve(__dirname, 'src')],
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  targets: {
+                    browsers: ['last 2 versions', 'ie >= 11' ]
+                  },
+                  useBuiltIns: 'usage',
+                  corejs:3,
+                  shippedProposals: true,
+                  modules: false
+                }
+              ]
+            ],
+            plugins: []
+          }
         }
       },
       {
         test: /\.s[ac]ss$/i,
-        include: [path.resolve(__dirname, 'src/css')],
+        include: [path.resolve(__dirname, 'src')],
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
@@ -37,23 +54,6 @@ module.exports = {
         ],
       },
     ],
-  },
-  optimization: {
-    /*
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name(module) {
-            console.debug(module.identifier().split('/'));
-            const moduleName = module.identifier().split('/').reduceRight(item => item).replace(/\.js$/, '');
-            return `./vendor/${moduleName}`;
-          },
-          chunks: 'all'
-        }
-      }
-    },
-    */
   },
   resolve: {
     extensions: ['.json', '.js', '.jsx'],
