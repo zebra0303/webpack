@@ -20,7 +20,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.jsx?$/,
         include: [path.resolve(__dirname, 'src')],
         exclude: /node_modules/,
         use: {
@@ -56,6 +56,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.json', '.js', '.jsx'],
+    extensions: ['.scss', '.js', '.jsx'],
   }
 };

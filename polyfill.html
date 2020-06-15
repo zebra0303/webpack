@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./asset/css/polyfill.bundle.css" />
+    <script>
+      const modernBrowser = "fetch" in window && "assign" in Object;
+
+      if (!modernBrowser) {
+        const scriptElement = document.createElement("script");
+
+        scriptElement.async = false;
+        scriptElement.src = "./asset/js/polyfill/fetch.bundle.js";
+        document.head.appendChild(scriptElement);
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>Polyfill Loading Example</h1>
+    </div>
+
+    <div class='menu'>
+      <a href="./index.html">Index</a> / <a href="./dynamic.html">Dynamic Import</a>
+    </div>
+
+    <div id="list"></div>
+
+
+    <script src="./asset/js/polyfill.bundle.js?v=123"></script>
+  </body>
+</html>

@@ -9,11 +9,13 @@ async function getComponent() {
 
   common();
   const elem = document.createElement('div');
+  const br = document.createElement("br");
   const btn = document.createElement("button");
 
   btn.innerHTML = "Click me and check the console!!";
   btn.onclick = printMe;
   elem.innerHTML = _.join(["Hello", "Main"], " ");
+  elem.appendChild(br);
   elem.appendChild(btn);
   return elem;
 }

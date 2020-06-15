@@ -1,24 +1,13 @@
-//import '../css/list/list.scss';
-console.log('list')
+const showList = (divList, arrList) => {
+  const ul = document.createElement('ul');
+  let li;
+  divList.appendChild(ul);
+  for (const item of arrList) {
+    li = document.createElement('li');
+    //console.debug(item);
+    li.innerText = `${item.name} (${item.email})`;
+    ul.appendChild(li);
+  }
+};
 
-async function getComponent() {
-  const { default : _ } = await import(/* webpackChunkName: 'lodash' */ 'lodash');
-
-  const element = document.createElement("div");
-  const btn = document.createElement("button");
-
-  element.innerHTML = _.join(["Hello", "List"], " ");
-
-  btn.innerHTML = "Click me and check the console!!";
-  const { default : printMe } = await import(/* webpackChunkName: 'print' */ '../print.js');
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
-
-  return element;
-}
-
-getComponent().then(comp=> {
-  document.body.appendChild(comp);
-});
-
+export default showList;

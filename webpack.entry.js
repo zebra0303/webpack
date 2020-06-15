@@ -1,4 +1,5 @@
 /*
+ webpack 5.0 entry list spec
 module.exports = {
   main: {
     import: ['core-js', 'regenerator-runtime/runtime', './src/js/main.js', './src/css/main.scss'], 
@@ -16,7 +17,8 @@ module.exports = {
 */
 
 module.exports = {
-  main: ['core-js/modules/es.array.iterator', './src/js/main.js', './src/css/main.scss'],
-  ie: ['whatwg-fetch', './src/js/ie.js', './src/css/ie.scss'],
-  'lib/list': ['core-js/modules/es.array.iterator', './src/js/lib/list.js', './src/css/lib/list.scss']
+  'polyfill/fetch': ['whatwg-fetch'],
+  'main': ['./src/css/main.scss'],
+  'polyfill': ['./src/js/polyfill.js', './src/css/polyfill.scss'],
+  'dynamic': ['core-js/modules/es.array.iterator', './src/js/dynamic.js', './src/css/dynamic.scss']
 };
