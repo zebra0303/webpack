@@ -1,3 +1,8 @@
+import common from './common';
+common().then(()=> {
+  console.debug('common done!');
+});
+
 async function getComponent() {
   const { default : _ } = await import(/* webpackChunkName: 'lodash' */ 'lodash');
 
@@ -7,8 +12,8 @@ async function getComponent() {
   element.innerHTML = _.join(["Hello", "Dynamic import", ""], " ");
 
   btn.innerHTML = "Show random user list!!";
-  const { default : callAjax } = await import(/* webpackChunkName: 'callAjax' */ './lib/callAjax.js');
-  btn.onclick = callAjax;
+  const { default : printMe } = await import(/* webpackChunkName: 'callAjax' */ './lib/callAjax.js');
+  btn.onclick = printMe;
 
   element.appendChild(btn);
 

@@ -18,7 +18,7 @@ module.exports = {
 
 module.exports = {
   'polyfill/fetch': ['whatwg-fetch'],
-  'main': ['./src/css/main.scss'],
+  'main': ['./src/js/main.js', './src/css/main.scss'],
   'polyfill': ['./src/js/polyfill.js', './src/css/polyfill.scss'],
   'dynamic': ['core-js/modules/es.array.iterator', './src/js/dynamic.js', './src/css/dynamic.scss']
 };

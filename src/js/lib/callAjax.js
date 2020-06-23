@@ -4,9 +4,9 @@ function getAxios() {
   return import(/* webpackChunkName: 'axios' */ 'axios')
   .then(props => {
     //console.debug(props);
-    const { default: axios2 } = props;
-    //console.debug(axios2);
-    return axios2;
+    const { default: axios } = props;
+    //console.debug(axios);
+    return axios;
   });
 }
 

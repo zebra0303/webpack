@@ -6,7 +6,7 @@ const showList = (divList, arrList) => {
     li = document.createElement('li');
     //console.debug(item);
     li.innerText = `${item.name} (${item.email})`;
-    ul.appendChild(li);
+    ul.appendChild(li)
   }
 };
 

@@ -32,6 +32,7 @@ module.exports = {
                 {
                   targets: {
                     browsers: ['last 2 versions', 'ie >= 11' ]
+                    //browsers: ['Chrome >= 60']
                   },
                   useBuiltIns: 'usage',
                   corejs:3,
@@ -56,6 +57,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.scss', '.js', '.jsx'],
+    extensions: ['.wasm', '.mjs', '.js', '.json']
   }
 };
